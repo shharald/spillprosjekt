@@ -19,7 +19,7 @@ public class GameEngine {
 		bilde1.setYLocation(-50);
 		bilde1.setBufferedImage(loadImages.getTarget(1,1));
 		GuiObject bilde2 = new Target(1,1);
-		bilde2.setXLocation(1000);
+		bilde2.setXLocation(999);
 		bilde2.setYLocation(-50);
 		bilde2.setBufferedImage(loadImages.getTarget(1,1));
 		GuiObject bilde3 = new Target(1,1);
