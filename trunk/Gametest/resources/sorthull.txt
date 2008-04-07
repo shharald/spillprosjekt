@@ -1,0 +1,16 @@
+Navn (eks Sorthull)
+Antall targets (eks: 5)
+Adresse til bakgrunnsbildet (relativ til levelmappe og mapnavn): "bakgrunn.gif" -> gir c:\spill\sorthull\bakgrunn.gif
+Adresse til panelbildet (relativ til levelmappe og mapnavn): "panel.gif" -> gir c:\spill\sorthull\panel.gif
+Strengen som skal skrives (eks: Venus)
+Adresse til bildet (relativ til levelmappe og mapnavn: "venus.gif" -> gir c:\spill\sorthull\venus.gif
+Strengen som skal skrives (eks: Venus)
+Adresse til bildet (relativ til levelmappe og mapnavn: "venus.gif" -> gir c:\spill\sorthull\venus.gif
+Strengen som skal skrives (eks: Venus)
+Adresse til bildet (relativ til levelmappe og mapnavn: "venus.gif" -> gir c:\spill\sorthull\venus.gif
+Strengen som skal skrives (eks: Venus)
+Adresse til bildet (relativ til levelmappe og mapnavn: "venus.gif" -> gir c:\spill\sorthull\venus.gif
+Strengen som skal skrives (eks: Venus)
+Adresse til bildet (relativ til levelmappe og mapnavn: "venus.gif" -> gir c:\spill\sorthull\venus.gif
+
+
