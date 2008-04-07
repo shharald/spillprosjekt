@@ -32,9 +32,6 @@ public class GameEngine {
 		bilde4.setBufferedImage(loadImages.getTarget(1,1));
 		guiObjects.add(bakgrunn);
 		guiObjects.add(bilde1);
-		guiObjects.add(bilde2);
-		guiObjects.add(bilde3);
-		guiObjects.add(bilde4);
 		guiObjects.add(panel);
 		GameGui gameGui = new GameGui(guiObjects);
 		Thread gui = new Thread(gameGui);
