@@ -4,7 +4,7 @@ import java.awt.image.BufferedImage;
 
 public class GuiObject {
 	protected BufferedImage bi;
-	private int XLocation, YLocation = 0;
+	private double XLocation, YLocation = 0;
 	
 	
 	public GuiObject() {
@@ -18,22 +18,21 @@ public class GuiObject {
 		return bi;
 	}
 	
-	public boolean setXLocation (int newXLocation){
+	public boolean setXLocation (double newXLocation){
 		XLocation = newXLocation;
 		return true;
 	}
 	
-	public int getXLocation (){
+	public double getXLocation (){
 		return XLocation;
 	}
 	
-	public boolean setYLocation (int newYLocation){
+	public boolean setYLocation (double newYLocation){
 		YLocation = newYLocation;
 		return true;
 	}
 
-	public int getYLocation (){
+	public double getYLocation (){
 		return YLocation;
-	}
-	
+	}	
 }
