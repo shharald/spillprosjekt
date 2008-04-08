@@ -9,7 +9,7 @@ public class LoadImages {
 	
 	public BufferedImage getBG(int level){		
 		try {
-			loadedimage = ImageIO.read( new File( "M:/workspace/Gametest/images/bg.png" ) );
+			loadedimage = ImageIO.read( new File( "images/bg.png" ) );
 		System.out.println("Lastet bakgrunn");
 		} catch (Exception e) {
 			System.out.println("Lastet ikke bakgrunn");
@@ -18,7 +18,7 @@ public class LoadImages {
 	}
 	public BufferedImage getTarget(int level, int targetNumber){
 		try {
-			loadedimage = ImageIO.read( new File( "M:/workspace/Gametest/images/venus100100.png" ) );
+			loadedimage = ImageIO.read( new File( "images/venus100100.png" ) );
 		System.out.println("Lastet planet");
 		} catch (Exception e) {
 			System.out.println("Lastet ikke planet");
@@ -28,7 +28,7 @@ public class LoadImages {
 	
 	public BufferedImage getPanel(int level){
 		try {
-			loadedimage = ImageIO.read( new File( "M:/workspace/Gametest/images/panel.png" ) );
+			loadedimage = ImageIO.read( new File( "images/panel.png" ) );
 		System.out.println("Lastet panel.");
 		} catch (Exception e) {
 			System.out.println("Lastet ikke panel");
