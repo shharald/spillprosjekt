@@ -13,10 +13,11 @@ public class GameGui implements Runnable {
 	GraphicsDevice device = null;
 	DisplayMode currentDisplayMode = null;
 	DisplayMode modeToPaint = null;
+	DisplayMode nativeMode = new DisplayMode(1280,1024,32,0);
 	int offset = 0;
 	boolean run = true;
-	double xRatio = 0;
-	double yRatio = 0;
+	double xRatio = 1;
+	double yRatio = 1;
 	
 	//debug stuff
 	boolean debug = true;
@@ -37,12 +38,15 @@ public class GameGui implements Runnable {
 	    GraphicsEnvironment env = GraphicsEnvironment.getLocalGraphicsEnvironment();
 	    device = env.getDefaultScreenDevice();	
     	currentDisplayMode = device.getDisplayMode();
+    	if(currentDisplayMode.equals(nativeMode)) modeToPaint = nativeMode;
+    	else {
     	modeToPaint  = new DisplayMode((int)(device.getDisplayMode().getHeight()/3)*4,device.getDisplayMode().getHeight(),device.getDisplayMode().getBitDepth(),0);
     	offset = (int)(currentDisplayMode.getWidth()+-modeToPaint.getWidth())/2;
     	xRatio = (double)modeToPaint.getWidth()/1280; // 0.8
     	yRatio = (double)modeToPaint.getHeight()/1024; //
+    	}
     }
-    private void doshit (){
+    public void doshit (){
 		try {
 	        GraphicsConfiguration gc = device.getDefaultConfiguration();
 	        mainFrame = new Frame(gc);
@@ -119,8 +123,6 @@ public class GameGui implements Runnable {
 	}
 	
 	public void stop () {
-
 		run = false;
-
 	}
 }

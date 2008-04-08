@@ -6,9 +6,14 @@ import java.util.List;
 public class GameEngine implements Runnable {
 
 	List<GuiObject> guiObjects = new ArrayList<GuiObject>();
+	boolean graphicsLoaded = false;
 	
 	public GameEngine (List<GuiObject> guiObjects) {
 		this.guiObjects = guiObjects;
+	}
+	
+	public boolean getgraphicsLoaded (){
+		return graphicsLoaded;
 	}
 
 	public void run() {
@@ -35,6 +40,7 @@ public class GameEngine implements Runnable {
 		bilde2.setYLocation(350);
 		System.out.println(Math.cos(Math.PI));
 		System.out.println(Math.cos(300*((2*Math.PI)/300)));
+		graphicsLoaded = true;
 		double radioslol = 3;
 			for (int i = -900; i < 3000; i++) {
 				bilde1.setXLocation(bilde1.getXLocation()+(1*radioslol*((Math.sin((double)(i*((2*Math.PI)/300)))))));
