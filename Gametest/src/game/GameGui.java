@@ -40,12 +40,13 @@ public class GameGui implements Runnable {
     	currentDisplayMode = device.getDisplayMode();
     	if(currentDisplayMode.equals(nativeMode)) modeToPaint = nativeMode;
     	else {
-    	modeToPaint  = new DisplayMode((int)(device.getDisplayMode().getHeight()/3)*4,device.getDisplayMode().getHeight(),device.getDisplayMode().getBitDepth(),0);
-    	offset = (int)(currentDisplayMode.getWidth()+-modeToPaint.getWidth())/2;
-    	xRatio = (double)modeToPaint.getWidth()/1280; // 0.8
-    	yRatio = (double)modeToPaint.getHeight()/1024; //
-    	}
+	    	modeToPaint  = new DisplayMode((int)(device.getDisplayMode().getHeight()/3)*4,device.getDisplayMode().getHeight(),device.getDisplayMode().getBitDepth(),0);
+	    	offset = (int)(currentDisplayMode.getWidth()+-modeToPaint.getWidth())/2;
+	    	xRatio = (double)modeToPaint.getWidth()/1280; // 0.8
+	    	yRatio = (double)modeToPaint.getHeight()/1024; //
+	    }
     }
+
     public void doshit (){
 		try {
 	        GraphicsConfiguration gc = device.getDefaultConfiguration();
@@ -108,18 +109,13 @@ public class GameGui implements Runnable {
 	    }
     }
 
-    public static void main(String[] args) {
- 
-    }
-
 	public void run() {
 	       try {
 	            doshit();
 	        } catch (Exception e) {
 	            e.printStackTrace();
 	        }
-	        System.exit(0);
-		
+	        System.exit(0);		
 	}
 	
 	public void stop () {
