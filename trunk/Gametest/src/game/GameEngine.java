@@ -20,6 +20,7 @@ public class GameEngine implements Runnable {
 		LoadImages loadImages = new LoadImages(); 
 		GuiObject bakgrunn = new GuiObject();
 		bakgrunn.setBufferedImage(loadImages.getBG(1));
+		guiObjects.add(bakgrunn);
 		GuiObject panel = new GuiObject();
 		panel.setBufferedImage(loadImages.getPanel(1));
 		GuiObject bilde1 = new Target(1,1);
