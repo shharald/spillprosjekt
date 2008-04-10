@@ -10,13 +10,19 @@ public class Target extends GuiObject{
 	private int speedOfObject = 1;
 	private int pointsForClear = 1000;
 	private int status = 0;
+	private Vector2D vector; 
+	private Player player;
 	
 	
-	public Target(int targetNumber, String stringToWrite, BufferedImage image) {
+	public Target(int targetNumber, String stringToWrite, BufferedImage image, int xLocation, int yLocation, Player player) {
 		super();
+		this.XLocation = xLocation;
+		this.YLocation = yLocation;
 		bi = image;
 		this.stringToWrite = stringToWrite;
 		this.targetNumber = targetNumber;
+		this.player = player;
+		this.createVector(player);
 	} 
 	
 	public String getStringToWrite () {
@@ -50,5 +56,33 @@ public class Target extends GuiObject{
 	public void setStatus(int status) {
 		this.status = status;
 	}
-}
+	
+	public void createVector (Player player) {
+		vector = new Vector2D(player.getXLocation()-this.XLocation, player.getYLocation()-this.YLocation, false);
+	}
+	
+	public double getTheta () {
+		return vector.getTheta();
+	}
+	
+	public double getLength () {
+		return vector.getLength();
+	}
 
+	public double getXCoordinate() {
+		return vector.getXCoordinate();
+	}
+	
+	public double getYCoordinate() {
+		return vector.getYCoordinate();
+	}
+	
+	public void increaseTheta (double thetaIncrease) {
+		vector.setPolar(vector.getTheta()+thetaIncrease);
+		this.setXLocation(player.getXLocation()+vector.getXCoordinate());
+		this.setYLocation(player.getYLocation()+vector.getYCoordinate());
+		//System.out.println(this.getXLocation());
+		//System.out.println(vector.toString());
+	}
+	
+}

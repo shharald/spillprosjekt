@@ -33,12 +33,17 @@ public class Vector2D {
 		this.length = Math.sqrt((yCor*yCor)+(xCor*xCor));
 	}
 	
+	public void setPolar(double theta) {
+		setPolar(theta,this.length);
+	}
+	
 	public void setPolar(double theta, double length){
 		this.length = length;
 		this.theta = theta%(2*Math.PI);
 		if(this.theta < 0){
-			this.theta += Math.PI;
+			this.theta += (2*Math.PI);
 		}
+	//	System.out.println("theta er"+this.theta);
 		if(theta%(2*Math.PI) >= 0 && theta%2*Math.PI <= Math.PI/2){
 			this.yCoordinate = length*Math.sin(theta);
 			this.xCoordinate = length*Math.cos(theta);

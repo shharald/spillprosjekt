@@ -4,7 +4,7 @@ import java.awt.image.BufferedImage;
 
 public class GuiObject {
 	protected BufferedImage bi;
-	private double XLocation, YLocation = 0;
+	protected double XLocation, YLocation = 0;
 	
 	
 	public GuiObject() {
