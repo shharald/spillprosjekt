@@ -9,8 +9,9 @@ public class Level {
 	private String levelName;
 	private GuiObject background;
 	private GuiObject panel;
+	private int yLocation, xLocation = 0;
 	
-	public Level (File file, LoadImages imageLoader) throws IOException{
+	public Level (File file, LoadImages imageLoader, Player player) throws IOException{
 		
 		if(file == null){
 			throw new IOException();
@@ -18,7 +19,7 @@ public class Level {
 		
 		try{
 			BufferedReader levelReader = new BufferedReader(new FileReader(file));
-			
+			this.setLocations();
 			//Setting levelName
 			this.levelName = levelReader.readLine();
 			
@@ -34,7 +35,8 @@ public class Level {
 			for(int i = 0; i < antallTargets; i++){
 				String myString =  levelReader.readLine();
 				BufferedImage myImage = imageLoader.getImage(this.levelName, levelReader.readLine());
-				Target t = new Target(i, myString, myImage);
+				
+				Target t = new Target(i, myString, myImage, xLocation, yLocation, player);
 				this.targets.add(t);
 			}
 			
@@ -54,6 +56,23 @@ public class Level {
 		return background;
 	}
 	public GuiObject getPanel() {
-		return panel;
+		return panel;	
+	}
+	
+	private void setLocations() {
+		int random = (int)(Math.random()*4);
+		if (random < 2) {
+			if (random < 1) xLocation = 600;
+			else xLocation = 100;
+			yLocation = (int)((Math.random()*500)+101);
+		}
+		else{
+			if (random < 3) {
+				yLocation = 600;
+			}
+			else yLocation = 100;
+			xLocation = (int)((Math.random()*500)+101);
+		}
+		
 	}
 }
