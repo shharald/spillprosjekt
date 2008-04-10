@@ -1,25 +1,21 @@
 package game;
 
+import java.awt.image.BufferedImage;
+
 public class Target extends GuiObject{
 
+
+	private int targetNumber;
 	private String stringToWrite;
 	private int speedOfObject = 1;
 	private int pointsForClear = 1000;
 	private int status = 0;
 	
 	
-	public Target(int level, int targetNumber) {
-
-		if (level == 1) {
-			if (targetNumber == 1) stringToWrite = "Merkur";
-			if (targetNumber == 2) stringToWrite = "Venus";
-			if (targetNumber == 3) stringToWrite = "Tellus";
-			if (targetNumber == 4) stringToWrite = "Mars";
-			if (targetNumber == 5) stringToWrite = "Jupiter";
-			if (targetNumber == 6) stringToWrite = "Saturn";
-			if (targetNumber == 7) stringToWrite = "Uranus";
-			if (targetNumber == 8) stringToWrite = "Neptun";
-		}
+	public Target(int targetNumber, String stringToWrite, BufferedImage image) {
+		super();
+		this.stringToWrite = stringToWrite;
+		this.targetNumber = targetNumber;
 	} 
 	
 	public String getStringToWrite () {
@@ -50,3 +46,4 @@ public class Target extends GuiObject{
 		this.status = status;
 	}
 }
+
