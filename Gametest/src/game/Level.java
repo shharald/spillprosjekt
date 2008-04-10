@@ -35,7 +35,6 @@ public class Level {
 				String myString =  levelReader.readLine();
 				BufferedImage myImage = imageLoader.getImage(this.levelName, levelReader.readLine());
 				Target t = new Target(i, myString, myImage);
-				System.out.println("Hei: "+t.getBufferedImage().getHeight());
 				this.targets.add(t);
 			}
 			
