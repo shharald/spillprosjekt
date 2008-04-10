@@ -1,9 +1,7 @@
 package game;
 
 import java.util.*;
-import java.util.List;
-import java.awt.*;
-import javax.swing.*;
+import java.awt.image.BufferedImage;
 import java.io.*;
 
 public class Level {
@@ -26,16 +24,19 @@ public class Level {
 			
 			//Setting the background
 			this.background = new GuiObject();
-			this.background.setBufferedImage(imageLoader.getImage(levelReader.readLine()));
-			
+			this.background.setBufferedImage(imageLoader.getImage(this.levelName, levelReader.readLine()));
 			//Setting the panel
 			this.panel = new GuiObject();
-			this.panel.setBufferedImage(imageLoader.getImage(levelReader.readLine()));
+			this.panel.setBufferedImage(imageLoader.getImage(this.levelName, levelReader.readLine()));
 			
 			//Getting the number of targets and setting the targets
 			int antallTargets = (int) Integer.parseInt(levelReader.readLine());
 			for(int i = 0; i < antallTargets; i++){
-				this.targets.add(new Target(i, levelReader.readLine(), imageLoader.getImage(levelReader.readLine())));
+				String myString =  levelReader.readLine();
+				BufferedImage myImage = imageLoader.getImage(this.levelName, levelReader.readLine());
+				Target t = new Target(i, myString, myImage);
+				System.out.println("Hei: "+t.getBufferedImage().getHeight());
+				this.targets.add(t);
 			}
 			
 		} catch (Exception e){
