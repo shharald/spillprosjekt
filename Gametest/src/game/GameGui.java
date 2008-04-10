@@ -87,7 +87,7 @@ public class GameGui implements Runnable {
 	                 	// Tegn score
 	            		// Tegn tekst
 	            		if (debug){
-	            			g.setColor(COLORS[2]);
+	            			g.setColor(COLORS[6]);
 	            			g.drawString(str, (int)(1000*yRatio), 20);
 	            		}
 	                	bufferStrategy.show();
