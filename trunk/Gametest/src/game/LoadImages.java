@@ -29,9 +29,9 @@ public class LoadImages {
 //		return guiObject;
 //	}
 	
-	public BufferedImage getImage(String filename){		
+	public BufferedImage getImage(String levelName, String filename){		
 		try {
-			loadedimage = ImageIO.read( new File( "images/" + filename ) );
+			loadedimage = ImageIO.read( new File( "resources/"+ levelName + "/" + filename ) );
 			System.out.println("Lastet bilde " + filename);
 		} catch (Exception e) {
 			System.out.println("Lastet ikke bilde " + filename);

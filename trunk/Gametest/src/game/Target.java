@@ -14,6 +14,7 @@ public class Target extends GuiObject{
 	
 	public Target(int targetNumber, String stringToWrite, BufferedImage image) {
 		super();
+		bi = image;
 		this.stringToWrite = stringToWrite;
 		this.targetNumber = targetNumber;
 	} 
@@ -32,6 +33,10 @@ public class Target extends GuiObject{
 
 	public int getPointsForClear() {
 		return pointsForClear;
+	}
+	
+	public int getTargetNumber() {
+		return targetNumber;
 	}
 
 	public void setPointsForClear(int pointsForClear) {
