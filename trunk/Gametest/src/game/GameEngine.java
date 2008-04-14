@@ -24,18 +24,36 @@ public class GameEngine implements Runnable {
 		LoadImages loadImages = new LoadImages();
 		File file = new File("resources/eksempel.lvl");
 		Level brett1;
+		Level brett2;
+		Level brett3;
 		Player kalle = new Player();
 		kalle.setXLocation(450);
 		kalle.setYLocation(450);
 		kalle.setBufferedImage(loadImages.getImage("eksempel", "player.png"));
+		Player roar = new Player();
+		roar.setXLocation(250);
+		roar.setYLocation(250);
+		roar.setBufferedImage(loadImages.getImage("eksempel", "player.png"));
+		Player stein = new Player();
+		stein.setXLocation(650);
+		stein.setYLocation(650);
+		stein.setBufferedImage(loadImages.getImage("eksempel", "player.png"));
 		try {
 			brett1 = new Level(file, loadImages, kalle);
+			brett2 = new Level(file, loadImages, roar);
+			brett3 = new Level(file, loadImages, stein);
 			guiObjects.add(brett1.getBackground());
 			for (int i = 0; i < brett1.getTargets().size();i++){
 				guiObjects.add(brett1.getTargets().get(i));
+				guiObjects.add(brett2.getTargets().get(i));
+				guiObjects.add(brett3.getTargets().get(i));
 				movingTargetThreads.add(new Thread(new MovingTarget(brett1.getTargets().get(i), (int)(((Math.random()*6000)+6000)))));
+				movingTargetThreads.add(new Thread(new MovingTarget(brett2.getTargets().get(i), (int)(((Math.random()*6000)+6000)))));
+				movingTargetThreads.add(new Thread(new MovingTarget(brett3.getTargets().get(i), (int)(((Math.random()*6000)+6000)))));
+
 			}
-			guiObjects.add(kalle);
+//			guiObjects.add(kalle);
+//			guiObjects.add(roar);
 			guiObjects.add(brett1.getPanel());
 			graphicsLoaded = true;
 			

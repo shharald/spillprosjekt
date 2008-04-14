@@ -43,8 +43,8 @@ public class Vector2D {
 		if(this.theta < 0){
 			this.theta += (2*Math.PI);
 		}
-			this.yCoordinate = -length*Math.sin(theta);
-			this.xCoordinate = -length*Math.cos(theta);
+		this.yCoordinate = -length*Math.sin(theta);
+		this.xCoordinate = -length*Math.cos(theta);
 	}
 
 	public double getTheta() {
