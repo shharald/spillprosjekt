@@ -77,8 +77,8 @@ public class Target extends GuiObject{
 		return vector.getYCoordinate();
 	}
 	
-	public void increaseTheta (double thetaIncrease) {
-		vector.setPolar(vector.getTheta()+thetaIncrease);
+	public void increasePolar (double thetaIncrease, double lenghtIncrease) {
+		vector.setPolar(vector.getTheta()+thetaIncrease, vector.getLength()+lenghtIncrease);
 		this.setXLocation(player.getXLocation()+vector.getXCoordinate());
 		this.setYLocation(player.getYLocation()+vector.getYCoordinate());
 		//System.out.println(this.getXLocation());

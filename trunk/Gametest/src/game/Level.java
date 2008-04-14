@@ -19,7 +19,6 @@ public class Level {
 		
 		try{
 			BufferedReader levelReader = new BufferedReader(new FileReader(file));
-			this.setLocations();
 			//Setting levelName
 			this.levelName = levelReader.readLine();
 			
@@ -35,7 +34,7 @@ public class Level {
 			for(int i = 0; i < antallTargets; i++){
 				String myString =  levelReader.readLine();
 				BufferedImage myImage = imageLoader.getImage(this.levelName, levelReader.readLine());
-				
+				this.setLocations();
 				Target t = new Target(i, myString, myImage, xLocation, yLocation, player);
 				this.targets.add(t);
 			}
@@ -62,16 +61,16 @@ public class Level {
 	private void setLocations() {
 		int random = (int)(Math.random()*4);
 		if (random < 2) {
-			if (random < 1) xLocation = 600;
-			else xLocation = 100;
-			yLocation = (int)((Math.random()*500)+101);
+			if (random < 1) xLocation = 1100;
+			else xLocation = -100;
+			yLocation = (int)((Math.random()*1200)+101);
 		}
 		else{
 			if (random < 3) {
-				yLocation = 600;
+				yLocation = 1100;
 			}
-			else yLocation = 100;
-			xLocation = (int)((Math.random()*500)+101);
+			else yLocation = -100;
+			xLocation = (int)((Math.random()*1200)+101);
 		}
 		
 	}

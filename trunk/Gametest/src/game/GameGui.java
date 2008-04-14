@@ -78,7 +78,7 @@ public class GameGui implements Runnable {
 	                 		g.drawImage(go.getBufferedImage(), (int)(go.getXLocation()*xRatio), (int)(go.getYLocation()*yRatio), (int) ((go.getXLocation()+go.getBufferedImage().getWidth())*xRatio), (int)((go.getYLocation()+go.getBufferedImage().getHeight())*yRatio), 
 	                 				0, 0, go.getBufferedImage().getWidth(), go.getBufferedImage().getHeight(), null);
 	                 	}
-	                 	g.setColor(COLORS[2]);
+	                 	g.setColor(COLORS[5]);
 	            		if (offset > 0){
 	            			g.fillRect(-offset, 0, offset, modeToPaint.getHeight());
 	            			g.fillRect(modeToPaint.getWidth(), 0, offset, modeToPaint.getWidth());

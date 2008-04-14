@@ -43,24 +43,8 @@ public class Vector2D {
 		if(this.theta < 0){
 			this.theta += (2*Math.PI);
 		}
-	//	System.out.println("theta er"+this.theta);
-		if(theta%(2*Math.PI) >= 0 && theta%2*Math.PI <= Math.PI/2){
-			this.yCoordinate = length*Math.sin(theta);
-			this.xCoordinate = length*Math.cos(theta);
-		} else if(theta%(2*Math.PI) <= Math.PI){
-			double tempTheta = Math.PI - theta;
-			this.yCoordinate = length*Math.sin(tempTheta);
-			this.xCoordinate = length*Math.cos(tempTheta);
-		} else if(theta%(2*Math.PI) <= ((3/2)*Math.PI)){
-			double tempTheta = theta - Math.PI;
-			this.yCoordinate = length*Math.sin(tempTheta);
-			this.xCoordinate = length*Math.cos(tempTheta);
-		} else if(theta%(2*Math.PI) < 2*Math.PI){
-			double tempTheta = 2*Math.PI - theta;
-			this.yCoordinate = length*Math.sin(tempTheta);
-			this.xCoordinate = length*Math.cos(tempTheta);
-		}
-		
+			this.yCoordinate = -length*Math.sin(theta);
+			this.xCoordinate = -length*Math.cos(theta);
 	}
 
 	public double getTheta() {
