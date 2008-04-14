@@ -20,43 +20,37 @@ public class GameEngine implements Runnable {
 	}
 
 	public void run() {
+		List<Thread> movingTargetThreads = new ArrayList<Thread>();
 		LoadImages loadImages = new LoadImages();
 		File file = new File("resources/eksempel.lvl");
 		Level brett1;
 		Player kalle = new Player();
-		kalle.setXLocation(350);
-		kalle.setYLocation(350);
+		kalle.setXLocation(450);
+		kalle.setYLocation(450);
 		kalle.setBufferedImage(loadImages.getImage("eksempel", "player.png"));
 		try {
 			brett1 = new Level(file, loadImages, kalle);
 			guiObjects.add(brett1.getBackground());
-			guiObjects.add(brett1.getTargets().get(0));
+			for (int i = 0; i < brett1.getTargets().size();i++){
+				guiObjects.add(brett1.getTargets().get(i));
+				movingTargetThreads.add(new Thread(new MovingTarget(brett1.getTargets().get(i), (int)(((Math.random()*6000)+6000)))));
+			}
 			guiObjects.add(kalle);
 			guiObjects.add(brett1.getPanel());
-//			brett1.getTargets().get(1).setXLocation(350);
-//			brett1.getTargets().get(1).setYLocation(350);
 			graphicsLoaded = true;
 			
-			//POLARKOORDINATER
-
-//			brett1.getTargets().get(0).setXLocation(200);
-//			brett1.getTargets().get(0).setYLocation(300);
-			
-			
 			System.out.println("Target: "+brett1.getTargets().get(0).getXLocation()+"x"+brett1.getTargets().get(0).getYLocation());
+			System.out.println("Target: "+brett1.getTargets().get(1).getXLocation()+"x"+brett1.getTargets().get(1).getYLocation());
 			System.out.println("Player: "+kalle.getXLocation()+"x"+kalle.getYLocation());
-			System.out.println("Vektor "+brett1.getTargets().get(0).getTheta());
-			
-	
-			double radioslol = 3;
-			for (int i = -900; i < 3000; i++) {
-//				brett1.getTargets().get(0).setXLocation(brett1.getTargets().get(0).getXLocation()+(1*radioslol*((Math.sin((double)(i*((2*Math.PI)/300)))))));
-//				brett1.getTargets().get(0).setYLocation(brett1.getTargets().get(0).getYLocation()+(1*radioslol*((Math.cos((double)(i*((2*Math.PI)/300)))))));
-//				radioslol = radioslol * 0.999; 
-				brett1.getTargets().get(0).increaseTheta(0.002);
-				try {
-		         	Thread.sleep((int) 2);
-		         } catch (InterruptedException e) {}
+			System.out.println("Theta "+brett1.getTargets().get(0).getTheta());
+			System.out.println("Theta "+brett1.getTargets().get(1).getTheta());
+			for (int i = 0; i < movingTargetThreads.size(); i++){
+			movingTargetThreads.get(i).start();
+			}
+			try {
+				for (int i = 0; i < movingTargetThreads.size(); i++) movingTargetThreads.get(i).join();
+			} catch (InterruptedException e1) {
+				e1.printStackTrace();
 			}
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
