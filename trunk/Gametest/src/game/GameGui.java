@@ -8,7 +8,7 @@ import java.util.List;
 
 public class GameGui implements Runnable {
   
-	Frame mainFrame;
+	GameFrame mainFrame;
 	List<GuiObject> guiObjects = new ArrayList<GuiObject>();
 	GraphicsDevice device = null;
 	DisplayMode currentDisplayMode = null;
@@ -50,7 +50,7 @@ public class GameGui implements Runnable {
     public void doshit (){
 		try {
 	        GraphicsConfiguration gc = device.getDefaultConfiguration();
-	        mainFrame = new Frame(gc);
+	        mainFrame = new GameFrame(gc);
 	        mainFrame.setUndecorated(true);
 	        mainFrame.setIgnoreRepaint(true);
 	        device.setFullScreenWindow(mainFrame);
@@ -87,8 +87,11 @@ public class GameGui implements Runnable {
 	                 	// Tegn score
 	            		// Tegn tekst keylistener
 	            		if (debug){
-	            			g.setColor(COLORS[6]);
+	            			g.setColor(COLORS[2]);
+	            			
 	            			g.drawString(str, (int)(1000*yRatio), 20);
+	            			g.drawString(mainFrame.getCurrentLine(), (int)(900*yRatio), (int)(20*xRatio));
+	            			g.drawString(mainFrame.getCurrentString(), (int)(200*yRatio), (int)(900*xRatio));
 	            		}
 	                	bufferStrategy.show();
 	                	if (debug) {
