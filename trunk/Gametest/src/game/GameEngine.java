@@ -47,9 +47,9 @@ public class GameEngine implements Runnable {
 				guiObjects.add(brett1.getTargets().get(i));
 				guiObjects.add(brett2.getTargets().get(i));
 				guiObjects.add(brett3.getTargets().get(i));
-				movingTargetThreads.add(new Thread(new MovingTarget(brett1.getTargets().get(i), (int)(((Math.random()*6000)+6000)))));
-				movingTargetThreads.add(new Thread(new MovingTarget(brett2.getTargets().get(i), (int)(((Math.random()*6000)+6000)))));
-				movingTargetThreads.add(new Thread(new MovingTarget(brett3.getTargets().get(i), (int)(((Math.random()*6000)+6000)))));
+				movingTargetThreads.add(new Thread(new MovingTarget(brett1.getTargets().get(i), (int)(((Math.random()*6000)+3000)))));
+				movingTargetThreads.add(new Thread(new MovingTarget(brett2.getTargets().get(i), (int)(((Math.random()*600)+3000)))));
+				movingTargetThreads.add(new Thread(new MovingTarget(brett3.getTargets().get(i), (int)(((Math.random()*600)+3000)))));
 
 			}
 //			guiObjects.add(kalle);

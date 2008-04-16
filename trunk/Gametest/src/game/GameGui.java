@@ -85,7 +85,7 @@ public class GameGui implements Runnable {
 	            		}
 	                 	// Tegn panel
 	                 	// Tegn score
-	            		// Tegn tekst
+	            		// Tegn tekst keylistener
 	            		if (debug){
 	            			g.setColor(COLORS[6]);
 	            			g.drawString(str, (int)(1000*yRatio), 20);
