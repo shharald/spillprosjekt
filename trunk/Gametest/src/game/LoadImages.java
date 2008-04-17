@@ -5,7 +5,6 @@ import java.io.File;
 import javax.imageio.ImageIO;
 
 public class LoadImages {
-	private BufferedImage loadedimage;
 	
 //	public GuiObject getGuiObjectWithBufferedImage(){
 //		try {
@@ -29,9 +28,21 @@ public class LoadImages {
 //		return guiObject;
 //	}
 	
-	public BufferedImage getImage(String levelName, String filename){		
+	public static BufferedImage getImage(String levelName, String filename){		
+		BufferedImage loadedimage = null;
 		try {
 			loadedimage = ImageIO.read( new File( "resources/"+ levelName + "/" + filename ) );
+			System.out.println("Lastet bilde " + filename);
+		} catch (Exception e) {
+			System.out.println("Lastet ikke bilde " + filename);
+		}	
+		return loadedimage;
+	}
+	
+	public static BufferedImage getMenu(String filename){		
+		BufferedImage loadedimage = null;
+		try {
+			loadedimage = ImageIO.read( new File( "resources/menu/" + filename ) );
 			System.out.println("Lastet bilde " + filename);
 		} catch (Exception e) {
 			System.out.println("Lastet ikke bilde " + filename);

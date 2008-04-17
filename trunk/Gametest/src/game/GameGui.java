@@ -8,6 +8,7 @@ import java.util.List;
 
 public class GameGui implements Runnable {
   
+	GameData gameData;
 	GameFrame mainFrame;
 	List<GuiObject> guiObjects = new ArrayList<GuiObject>();
 	GraphicsDevice device = null;
@@ -33,8 +34,8 @@ public class GameGui implements Runnable {
     
 
     
-    public GameGui(List<GuiObject> guiObjects) {
-    	this.guiObjects = guiObjects;
+    public GameGui(GameData gameData) {
+    	this.gameData = gameData;
 	    GraphicsEnvironment env = GraphicsEnvironment.getLocalGraphicsEnvironment();
 	    device = env.getDefaultScreenDevice();	
     	currentDisplayMode = device.getDisplayMode();
@@ -74,7 +75,10 @@ public class GameGui implements Runnable {
 	                	// Iterate over en greie med alle guiObjects ELLER
 	                	// Tegn bakgrunn
 	                	// Tegn targets
-	                 	for(GuiObject go:guiObjects){
+	                 	for(GuiObject go:gameData.getObjectsOnScreen()){
+	                 		if (go instanceof Target){
+	                 		System.out.println("ehe");
+	                 		}
 	                 		g.drawImage(go.getBufferedImage(), (int)(go.getXLocation()*xRatio), (int)(go.getYLocation()*yRatio), (int) ((go.getXLocation()+go.getBufferedImage().getWidth())*xRatio), (int)((go.getYLocation()+go.getBufferedImage().getHeight())*yRatio), 
 	                 				0, 0, go.getBufferedImage().getWidth(), go.getBufferedImage().getHeight(), null);
 	                 	}
@@ -88,7 +92,7 @@ public class GameGui implements Runnable {
 	            		// Tegn tekst keylistener
 	            		if (debug){
 	            			g.setColor(COLORS[2]);
-	            			
+	       
 	            			g.drawString(str, (int)(1000*yRatio), 20);
 	            			g.drawString(mainFrame.getCurrentLine(), (int)(900*yRatio), (int)(20*xRatio));
 	            			g.drawString(mainFrame.getCurrentString(), (int)(200*yRatio), (int)(900*xRatio));
