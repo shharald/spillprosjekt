@@ -11,7 +11,7 @@ public class Level {
 	private GuiObject panel;
 	private int yLocation, xLocation = 0;
 	
-	public Level (File file, LoadImages imageLoader, Player player) throws IOException{
+	public Level (File file, Player player) throws IOException{
 		
 		if(file == null){
 			throw new IOException();
@@ -24,16 +24,16 @@ public class Level {
 			
 			//Setting the background
 			this.background = new GuiObject();
-			this.background.setBufferedImage(imageLoader.getImage(this.levelName, levelReader.readLine()));
+			this.background.setBufferedImage(LoadImages.getImage(this.levelName, levelReader.readLine()));
 			//Setting the panel
 			this.panel = new GuiObject();
-			this.panel.setBufferedImage(imageLoader.getImage(this.levelName, levelReader.readLine()));
+			this.panel.setBufferedImage(LoadImages.getImage(this.levelName, levelReader.readLine()));
 			
 			//Getting the number of targets and setting the targets
 			int antallTargets = (int) Integer.parseInt(levelReader.readLine());
 			for(int i = 0; i < antallTargets; i++){
 				String myString =  levelReader.readLine();
-				BufferedImage myImage = imageLoader.getImage(this.levelName, levelReader.readLine());
+				BufferedImage myImage = LoadImages.getImage(this.levelName, levelReader.readLine());
 				this.setLocations();
 				Target t = new Target(i, myString, myImage, xLocation, yLocation, player);
 				this.targets.add(t);
