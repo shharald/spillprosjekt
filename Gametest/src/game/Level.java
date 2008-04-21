@@ -9,7 +9,6 @@ public class Level {
 	private String levelName;
 	private GuiObject background;
 	private GuiObject panel;
-	private int yLocation, xLocation = 0;
 	
 	public Level (File file, Player player) throws IOException{
 		
@@ -34,8 +33,7 @@ public class Level {
 			for(int i = 0; i < antallTargets; i++){
 				String myString =  levelReader.readLine();
 				BufferedImage myImage = LoadImages.getImage(this.levelName, levelReader.readLine());
-				this.setLocations();
-				Target t = new Target(i, myString, myImage, xLocation, yLocation, player);
+				Target t = new Target(i, myString, myImage, (double)(Math.random()*((4*Math.PI))), player);
 				this.targets.add(t);
 			}
 			
@@ -56,22 +54,5 @@ public class Level {
 	}
 	public GuiObject getPanel() {
 		return panel;	
-	}
-	
-	private void setLocations() {
-		int random = (int)(Math.random()*4);
-		if (random < 2) {
-			if (random < 1) xLocation = 1100;
-			else xLocation = -100;
-			yLocation = (int)((Math.random()*1200)+101);
-		}
-		else{
-			if (random < 3) {
-				yLocation = 1100;
-			}
-			else yLocation = -100;
-			xLocation = (int)((Math.random()*1200)+101);
-		}
-		
 	}
 }

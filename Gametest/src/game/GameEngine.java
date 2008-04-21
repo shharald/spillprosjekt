@@ -26,9 +26,9 @@ public class GameEngine implements Runnable {
 			e.printStackTrace();
 		}
 		gameData.loadAllLevels();
-		gameData.getPlayer().setXLocation(400);
-		gameData.getPlayer().setYLocation(400);
-		gameData.getPlayer().setBufferedImage(LoadImages.getImage("bane1", "player.png"));
+		gameData.getPlayer().setXLocation(450);
+		gameData.getPlayer().setYLocation(450);
+		gameData.getPlayer().setBufferedImage(LoadImages.getImage("eksempel", "player.png"));
 		List<Thread> movingTargetThreads = new ArrayList<Thread>();
 		for (int i = 0; i < gameData.getLevel(0).getTargets().size();i++){
 			movingTargetThreads.add(new Thread(new MovingTarget(gameData.getLevel(0).getTargets().get(i), (int)(((Math.random()*1000)+10000)))));
@@ -55,6 +55,7 @@ public class GameEngine implements Runnable {
 		}
 		for (int i = 0; i < order.length; i++){
 			movingTargetThreads.get(order[i]).start();
+			gameData.getLevel(0).getTargets().get(order[i]).setStatus(1);
 			try {
 				movingTargetThreads.get(order[i]).join();
 			} catch (InterruptedException e) {
