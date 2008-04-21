@@ -9,16 +9,16 @@ public class Target extends GuiObject{
 	private String stringToWrite;
 	private int speedOfObject = 1;
 	private int pointsForClear = 100000;
-	private int status = 1;
+	private int status = 2;
 	private Vector2D vector; 
 	private Player player;
+	private double theta;
 	
 	
-	public Target(int targetNumber, String stringToWrite, BufferedImage image, int xLocation, int yLocation, Player player) {
+	public Target(int targetNumber, String stringToWrite, BufferedImage image, double theta, Player player) {
 		super();
-		this.XLocation = xLocation;
-		this.YLocation = yLocation;
-		bi = image;
+		this.theta = theta;
+		super.bi = image;
 		this.stringToWrite = stringToWrite;
 		this.targetNumber = targetNumber;
 		this.player = player;
@@ -53,12 +53,11 @@ public class Target extends GuiObject{
 		return status;
 	}
 
-	public void setStatus(int status) {
-		this.status = status;
+
 	}
 	
 	public void createVector (Player player) {
-		vector = new Vector2D(player.getXLocation()-this.XLocation, player.getYLocation()-this.YLocation, false);
+		this.vector = new Vector2D(theta, (double)450, true);
 	}
 	
 	public double getTheta () {

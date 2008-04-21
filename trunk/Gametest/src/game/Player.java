@@ -29,4 +29,8 @@ public class Player extends GuiObject {
 		score += pointsToIncrease; 
 	}
 	
+	public double getLength () {
+		return Math.sqrt((Math.pow(this.XLocation-450, 2))+(Math.pow(this.YLocation-450, 2)));		
+	}
+	
 }

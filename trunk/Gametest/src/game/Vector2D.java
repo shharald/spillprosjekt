@@ -30,7 +30,7 @@ public class Vector2D {
 		if(this.theta < 0){
 			this.theta += 2*Math.PI;
 		}
-		this.length = Math.sqrt((yCor*yCor)+(xCor*xCor));
+		this.length = Math.sqrt(Math.pow(yCor, 2)+Math.pow(xCor, 2));
 	}
 	
 	public void setPolar(double theta) {
