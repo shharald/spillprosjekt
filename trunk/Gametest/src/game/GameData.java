@@ -1,6 +1,7 @@
 package game;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class GameData {
@@ -8,6 +9,7 @@ public class GameData {
 	private List<GuiObject> menu = new ArrayList<GuiObject>();
 	private Player player = new Player();
     private List<GuiObject> objectsOnScreen = new ArrayList<GuiObject>();
+    private String currentLine = "";
 	
 	public void loadAllLevels() {
 	levels = Load.LoadLevels(player);
@@ -48,5 +50,29 @@ public class GameData {
 	
 	public List<GuiObject> getMenu (){
 		return menu;
+	}
+
+	public String getCurrentLine() {
+		return currentLine;
+	}
+
+	public void setCurrentLine(String currentLine) {
+		String s = this.currentLine;
+		this.currentLine = currentLine.trim();
+		this.currentLine = this.currentLine.toLowerCase();
+		if (!(this.currentLine.equals(s))) {
+			checkString();
+		}
+	}
+	
+	public void checkString () { 
+		for (GuiObject g: getObjectsOnScreen()){
+			if ((g instanceof Target) && (((Target)g).getStatus() == 1 )) {
+				if (this.currentLine.equals(((Target)g).getStringToWrite().toLowerCase())) {
+					System.out.println("Setter "+((Target)g).getStringToWrite()+" til 0");
+					((Target)g).setStatus(0);
+				}
+			}
+		}
 	}
 }

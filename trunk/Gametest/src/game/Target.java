@@ -8,8 +8,8 @@ public class Target extends GuiObject{
 	private int targetNumber;
 	private String stringToWrite;
 	private int speedOfObject = 1;
-	private int pointsForClear = 1000;
-	private int status = 0;
+	private int pointsForClear = 100000;
+	private int status = 1;
 	private Vector2D vector; 
 	private Player player;
 	
@@ -83,6 +83,21 @@ public class Target extends GuiObject{
 		this.setYLocation(player.getYLocation()+vector.getYCoordinate());
 		//System.out.println(this.getXLocation());
 		//System.out.println(vector.toString());
+	}
+
+	public void setPlayer(Player player) {
+		this.player = player;
+	}
+	public Player getPlayer() {
+		return player;
+	}
+
+	public Vector2D getVector() {
+		return vector;
+	}
+
+	public void setVector(Vector2D vector) {
+		this.vector = vector;
 	}
 	
 }
