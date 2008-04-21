@@ -65,6 +65,7 @@ public class GameGui implements Runnable {
 	        Graphics g = bufferStrategy.getDrawGraphics();
 	        g.translate(offset, 0);
 	        while(run) {
+	    		gameData.setCurrentLine(mainFrame.getCurrentLine());
 	                if (!bufferStrategy.contentsLost()) {
 	                	if (debug) {
 		                	if (fpsCounter!=0) {
@@ -76,8 +77,8 @@ public class GameGui implements Runnable {
 	                	// Tegn bakgrunn
 	                	// Tegn targets
 	                 	for(GuiObject go:gameData.getObjectsOnScreen()){
-	                 		if (go instanceof Target){
-	                 		System.out.println("ehe");
+	                 		if ((go instanceof Target) && (((Target)go).getStatus() == 0)){
+	                 			continue;
 	                 		}
 	                 		g.drawImage(go.getBufferedImage(), (int)(go.getXLocation()*xRatio), (int)(go.getYLocation()*yRatio), (int) ((go.getXLocation()+go.getBufferedImage().getWidth())*xRatio), (int)((go.getYLocation()+go.getBufferedImage().getHeight())*yRatio), 
 	                 				0, 0, go.getBufferedImage().getWidth(), go.getBufferedImage().getHeight(), null);
@@ -89,12 +90,29 @@ public class GameGui implements Runnable {
 	            		}
 	                 	// Tegn panel
 	                 	// Tegn score
+	            		g.drawString(Integer.toString(gameData.getPlayer().getScore()), 900, 100);
+	                  	int tekstHoyde = 500;
+	            		for(GuiObject go:gameData.getObjectsOnScreen()){
+	                  		if (!(go instanceof Target)) continue;
+	                  		tekstHoyde += 30;	            
+	                  		if(((Target)go).getStatus() == 0){
+	                 			g.setColor(COLORS[1]);
+	                 		} else {
+	                 			g.setColor(COLORS[8]);
+	                 		}
+	                 		            		
+	                  		g.drawString(((Target)go).getStringToWrite(), 900, tekstHoyde);
+	                  		g.setColor(COLORS[2]);
+                 		}
+	                  	
 	            		// Tegn tekst keylistener
 	            		if (debug){
+	            			Font def = new Font(null, 20, 20);
+	            			g.setFont(def);
 	            			g.setColor(COLORS[2]);
 	       
 	            			g.drawString(str, (int)(1000*yRatio), 20);
-	            			g.drawString(mainFrame.getCurrentLine(), (int)(900*yRatio), (int)(20*xRatio));
+	          //  			g.drawString(mainFrame.getCurrentLine(), (int)(900*yRatio), (int)(20*xRatio));
 	            			g.drawString(mainFrame.getCurrentString(), (int)(200*yRatio), (int)(900*xRatio));
 	            		}
 	                	bufferStrategy.show();

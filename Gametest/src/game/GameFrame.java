@@ -31,7 +31,6 @@ public class GameFrame extends Frame implements KeyListener{
 	        if (e.getKeyCode() == KeyEvent.VK_ENTER) {
 	        	currentLine = currentString;
 	            currentString = "";
-//	        	System.out.println(currentLine.toLowerCase());
 	           }
 	        if (e.getKeyChar() == KeyEvent.VK_BACK_SPACE) {
 	        	e.consume();
@@ -41,7 +40,6 @@ public class GameFrame extends Frame implements KeyListener{
 	        } else {
 	        	currentString += e.getKeyChar();
 	        }
-	       // System.out.println(currentLine.toLowerCase());
 	 	}
 	 	
 	 	public String getCurrentString () {
