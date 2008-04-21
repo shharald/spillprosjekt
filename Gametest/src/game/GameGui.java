@@ -77,7 +77,7 @@ public class GameGui implements Runnable {
 	                	// Tegn bakgrunn
 	                	// Tegn targets
 	                 	for(GuiObject go:gameData.getObjectsOnScreen()){
-	                 		if ((go instanceof Target) && (((Target)go).getStatus() == 0)){
+	                 		if ((go instanceof Target) && (((Target)go).getStatus() != 1)){
 	                 			continue;
 	                 		}
 	                 		g.drawImage(go.getBufferedImage(), (int)(go.getXLocation()*xRatio), (int)(go.getYLocation()*yRatio), (int) ((go.getXLocation()+go.getBufferedImage().getWidth())*xRatio), (int)((go.getYLocation()+go.getBufferedImage().getHeight())*yRatio), 
@@ -102,6 +102,7 @@ public class GameGui implements Runnable {
 	                 		}
 	                 		            		
 	                  		g.drawString(((Target)go).getStringToWrite(), 900, tekstHoyde);
+	                  		if (((Target)go).getStatus() == 1) g.drawString(Integer.toString(((Target)go).getPointsForClear()), 30, 30);
 	                  		g.setColor(COLORS[2]);
                  		}
 	                  	

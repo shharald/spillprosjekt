@@ -4,16 +4,18 @@ public class MovingTarget implements Runnable{
 	private Target target;
 	private int timeToUse;
 	private double scoreDecrease;
+	private int startScore;
 	
 	public MovingTarget (Target target, int timeToUse){
 	this.target = target;	
 	this.timeToUse = timeToUse;		
 	}
 
-	public void run() {		
+	public void run() {
+		startScore = target.getPointsForClear();
 		double thetaIncrease = (8*Math.PI)/timeToUse;
 		double lenghtIncrease = -(target.getLength()/timeToUse);
-		scoreDecrease = (target.getPointsForClear()/timeToUse);
+		scoreDecrease = (startScore/timeToUse);
 		for (int i = 1; i < timeToUse; i++) {
 			target.increasePolar(thetaIncrease, lenghtIncrease);
 			target.increasePolar(thetaIncrease, lenghtIncrease);
