@@ -2,14 +2,14 @@ package game;
 
 public class Player extends GuiObject {
 	
-	private int score;
+	private long score;
 	private String playerName;
 	
 	public Player(){
 		super();
 	}
 
-	public int getScore() {
+	public long getScore() {
 		return score;
 	}
 
