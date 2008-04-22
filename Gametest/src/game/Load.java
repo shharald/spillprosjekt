@@ -37,4 +37,9 @@ public class Load {
 		 return menu;
 		
 	}
+	
+	public static List<HighScoreEntity> LoadHighScore(){
+		List<HighScoreEntity>highScore = LoadHighScore.loadHigh();
+		return highScore;
+	}
 }

@@ -10,13 +10,18 @@ public class GameData {
 	private Player player = new Player();
     private List<GuiObject> objectsOnScreen = new ArrayList<GuiObject>();
     private String currentLine = "";
-	
+	private List<HighScoreEntity> highScore;
+    
 	public void loadAllLevels() {
-	levels = Load.LoadLevels(player);
+		levels = Load.LoadLevels(player);
 	}
 	
 	public void loadMenu() {
-	menu = Load.LoadMenu();
+		menu = Load.LoadMenu();
+	}
+	
+	public void loadHighScore(){
+		highScore = Load.LoadHighScore();
 	}
 	
 	public Level getLevel(int levelNr) {
