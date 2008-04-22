@@ -90,7 +90,7 @@ public class GameGui implements Runnable {
 	            		}
 	                 	// Tegn panel
 	                 	// Tegn score
-	            		g.drawString(Integer.toString(gameData.getPlayer().getScore()), 900, 100);
+	            		g.drawString(Long.toString(gameData.getPlayer().getScore()), 900, 100);
 	                  	int tekstHoyde = 500;
 	            		for(GuiObject go:gameData.getObjectsOnScreen()){
 	                  		if (!(go instanceof Target)) continue;
