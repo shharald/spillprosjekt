@@ -2,19 +2,24 @@ package game;
 
 public class Player extends GuiObject {
 	
-	private long score;
 	private String playerName;
+	private HighScoreEntity entity;
 	
 	public Player(){
 		super();
+		this.entity = new HighScoreEntity(this.playerName, 0);
 	}
 
 	public long getScore() {
-		return score;
+		return this.entity.getHighScoreEntityValue();
 	}
 
-	public void setScore(int score) {
-		this.score = score;
+	public void setScore(long score) {
+		this.entity.setHighScoreEntityValue(score);
+	}
+	
+	public HighScoreEntity getHighScoreEntity(){
+		return this.entity;
 	}
 
 	public String getPlayerName() {
@@ -25,8 +30,8 @@ public class Player extends GuiObject {
 		this.playerName = playerName;
 	}
 	
-	public void increaseScore(int pointsToIncrease) {
-		score += pointsToIncrease; 
+	public void increaseScore(long pointsToIncrease) {
+		this.setScore(this.getScore() + pointsToIncrease); 
 	}
 	
 	public double getLength () {

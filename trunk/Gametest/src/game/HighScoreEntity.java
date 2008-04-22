@@ -1,6 +1,6 @@
 package game;
 	
-public class HighScoreEntity {
+public class HighScoreEntity implements Comparable<HighScoreEntity> {
 	
 	private String highScoreEntityName;
 	private long highScoreEntityValue;
@@ -31,6 +31,15 @@ public class HighScoreEntity {
 		return this.highScoreEntityName + " " + this.highScoreEntityValue;
 	}
 
+	public int compareTo(HighScoreEntity arg0) {
+		if(this.highScoreEntityValue > arg0.getHighScoreEntityValue()){
+			return 1;
+		} else if(this.highScoreEntityValue < arg0.getHighScoreEntityValue()){
+			return -1;
+		} else {
+			return this.highScoreEntityName.compareTo(arg0.getHighScoreEntityName());
+		}
+	}
 	
 	
 	
