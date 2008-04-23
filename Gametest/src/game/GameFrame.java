@@ -32,11 +32,16 @@ public class GameFrame extends Frame implements KeyListener{
 	        	currentLine = currentString;
 	            currentString = "";
 	           }
+	        if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+	        	currentLine = "exit";
+	           } 
 	        if (e.getKeyChar() == KeyEvent.VK_BACK_SPACE) {
 	        	e.consume();
 	        	if (currentString.length() > 0) {
 	        		currentString = currentString.substring(0, currentString.length()-1);
 	        	}
+	        } else if (e.getKeyChar() == KeyEvent.VK_SHIFT || e.getKeyChar() == KeyEvent.VK_DOWN) {
+	        	return;
 	        } else {
 	        	currentString += e.getKeyChar();
 	        }
