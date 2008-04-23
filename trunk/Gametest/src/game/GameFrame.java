@@ -22,8 +22,7 @@ public class GameFrame extends Frame implements KeyListener{
 		       setLayout ( null ) ; 
 		       addKeyListener ( this ) ; 
 		     }  
-	  
-	  
+
 	 	public void keyTyped(KeyEvent e) {}
 		public void keyReleased(KeyEvent e) {}
 	 	public void keyPressed(KeyEvent e)
@@ -40,8 +39,8 @@ public class GameFrame extends Frame implements KeyListener{
 	        	if (currentString.length() > 0) {
 	        		currentString = currentString.substring(0, currentString.length()-1);
 	        	}
-	        } else if (e.getKeyChar() == KeyEvent.VK_SHIFT || e.getKeyChar() == KeyEvent.VK_DOWN) {
-	        	return;
+	        } else if (e.getKeyChar() == KeyEvent.CHAR_UNDEFINED) {
+	        	return;	
 	        } else {
 	        	currentString += e.getKeyChar();
 	        }
