@@ -63,8 +63,12 @@ public class GameData {
 
 	public void setCurrentLine(String currentLine) {
 		String s = this.currentLine;
+		if ((this.currentLine.equals("exit"))) {
+			exitGame();
+		}
 		this.currentLine = currentLine.trim();
 		this.currentLine = this.currentLine.toLowerCase();
+		
 		if (!(this.currentLine.equals(s))) {
 			checkString();
 		}
@@ -72,12 +76,21 @@ public class GameData {
 	
 	public void checkString () { 
 		for (GuiObject g: getObjectsOnScreen()){
-			if ((g instanceof Target) && (((Target)g).getStatus() == 1 )) {
+			if ((g instanceof Target) && (((Target)g).getStatus() == 1 )) {				
 				if (this.currentLine.equals(((Target)g).getStringToWrite().toLowerCase())) {
 					System.out.println("Setter "+((Target)g).getStringToWrite()+" til 0");
 					((Target)g).setStatus(0);
 				}
 			}
+		}
+	}
+	
+	public void exitGame() {
+		for (GuiObject g: getObjectsOnScreen()){
+			if ((g instanceof Target)) {
+				((Target)g).setStatus(0);
+			}
+			
 		}
 	}
 }
