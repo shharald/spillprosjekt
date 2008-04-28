@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class GameData {
+	private GameFrame mainFrame;
 	private List<Level> levels = new ArrayList<Level>();
 	private List<GuiObject> menu = new ArrayList<GuiObject>();
 	private Player player = new Player();
@@ -58,10 +59,10 @@ public class GameData {
 	}
 
 	public String getCurrentLine() {
-		return currentLine;
+		return mainFrame.getCurrentLine();
 	}
 
-	public void setCurrentLine(String currentLine) {
+	/*public void setCurrentLine(String currentLine) {
 		String s = this.currentLine;
 		if ((this.currentLine.equals("exit"))) {
 			exitGame();
@@ -74,16 +75,8 @@ public class GameData {
 		}
 	}
 	
-	public void checkString () { 
-		for (GuiObject g: getObjectsOnScreen()){
-			if ((g instanceof Target) && (((Target)g).getStatus() == 1 )) {				
-				if (this.currentLine.equals(((Target)g).getStringToWrite().toLowerCase())) {
-					System.out.println("Setter "+((Target)g).getStringToWrite()+" til 0");
-					((Target)g).setStatus(0);
-				}
-			}
-		}
-	}
+	
+	*/
 	
 	public void exitGame() {
 		for (GuiObject g: getObjectsOnScreen()){
@@ -92,5 +85,13 @@ public class GameData {
 			}
 			
 		}
+	}
+
+	public GameFrame getMainFrame() {
+		return mainFrame;
+	}
+
+	public void setMainFrame(GameFrame mainFrame) {
+		this.mainFrame = mainFrame;
 	}
 }
