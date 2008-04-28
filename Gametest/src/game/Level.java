@@ -37,6 +37,8 @@ public class Level {
 				this.targets.add(t);
 			}
 			
+			levelReader.close();
+			
 		} catch (Exception e){
 			System.err.println(e);
 		}
