@@ -6,6 +6,8 @@ import java.awt.image.BufferStrategy;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JPanel;
+
 public class GameGui implements Runnable {
   
 	GameData gameData;
