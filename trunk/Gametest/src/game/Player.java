@@ -2,12 +2,11 @@ package game;
 
 public class Player extends GuiObject {
 	
-	private String playerName;
 	private HighScoreEntity entity;
 	
 	public Player(){
 		super();
-		this.entity = new HighScoreEntity(this.playerName, 0);
+		this.entity = new HighScoreEntity(null, 0);
 	}
 
 	public long getScore() {
@@ -23,11 +22,11 @@ public class Player extends GuiObject {
 	}
 
 	public String getPlayerName() {
-		return playerName;
+		return this.entity.getHighScoreEntityName();
 	}
 
 	public void setPlayerName(String playerName) {
-		this.playerName = playerName;
+		this.entity.setHighScoreEntityName(playerName);
 	}
 	
 	public void increaseScore(long pointsToIncrease) {

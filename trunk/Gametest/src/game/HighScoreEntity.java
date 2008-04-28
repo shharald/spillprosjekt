@@ -33,9 +33,9 @@ public class HighScoreEntity implements Comparable<HighScoreEntity> {
 
 	public int compareTo(HighScoreEntity arg0) {
 		if(this.highScoreEntityValue > arg0.getHighScoreEntityValue()){
-			return 1;
-		} else if(this.highScoreEntityValue < arg0.getHighScoreEntityValue()){
 			return -1;
+		} else if(this.highScoreEntityValue < arg0.getHighScoreEntityValue()){
+			return 1;
 		} else {
 			return this.highScoreEntityName.compareTo(arg0.getHighScoreEntityName());
 		}
