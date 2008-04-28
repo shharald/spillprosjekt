@@ -4,19 +4,15 @@ public class Initiater {
     private static GameData gameData = new GameData();
     
 	public static void main(String[] args) {
+		Engine gameMenu = new Engine(gameData);
+		Thread menu = new Thread(gameMenu);
+		menu.start();
 		gameData.loadMenu();
 		gameData.loadHighScore();
 		gameData.setObjectsOnScreen(gameData.getMenu());
-		GameGui gameGui = new GameGui(gameData);
-		GameEngine gameEngine = new GameEngine(gameData);
-		GameMenu gameMenu = new GameMenu(gameData);
+		gameData.loadAllLevels();
 		
-		Thread gui = new Thread(gameGui);
-		Thread menu = new Thread(gameMenu);
-		Thread game = new Thread(gameEngine);
-		menu.start();
-		menu.join();
-		game.start();
+		/*
 		while (game.isAlive() || gui.isAlive()){
 			if (!gui.isAlive() && gameEngine.getgraphicsLoaded()) {
 				gui.start();
@@ -28,7 +24,7 @@ public class Initiater {
 			}
 			try {
 	         	Thread.sleep((int) 100);
-	         } catch (InterruptedException e) {}
-		}
+			} catch (InterruptedException e) {}
+		}*/
 	 }
 }
