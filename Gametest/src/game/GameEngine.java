@@ -26,6 +26,7 @@ public class GameEngine implements Runnable {
 			e.printStackTrace();
 		}
 		gameData.loadAllLevels();
+		gameData.getPlayer().setPlayerName("VKS in tha Hood");
 		gameData.getPlayer().setXLocation(450);
 		gameData.getPlayer().setYLocation(450);
 		gameData.getPlayer().setBufferedImage(LoadImages.getImage("eksempel", "player.png"));
@@ -66,6 +67,8 @@ public class GameEngine implements Runnable {
 				e1.printStackTrace();
 			}
 		}
+		UpdateHighScore.update(gameData.getPlayer(), gameData.getHighScore());
+		UpdateHighScore.commit(gameData.getHighScore());
 	}
 	
 }

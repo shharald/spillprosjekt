@@ -5,6 +5,7 @@ public class Initiater {
     
 	public static void main(String[] args) {
 		gameData.loadMenu();
+		gameData.loadHighScore();
 		gameData.setObjectsOnScreen(gameData.getMenu());
 		GameGui gameGui = new GameGui(gameData);
 		GameEngine gameEngine = new GameEngine(gameData);
