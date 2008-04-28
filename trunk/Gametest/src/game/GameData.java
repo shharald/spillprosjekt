@@ -98,4 +98,8 @@ public class GameData {
 	public int getNumberOfLevels() {
 		return levels.size();
 	}
+	
+	public List<HighScoreEntity> getHighScore(){
+		return highScore;
+	}
 }
