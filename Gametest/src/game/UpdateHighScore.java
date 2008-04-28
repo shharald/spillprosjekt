@@ -15,6 +15,7 @@ public class UpdateHighScore {
 		if(player.getHighScoreEntity().compareTo(highScore.get(highScore.size() - 1))<0){
 			highScore.remove(highScore.size()-1);
 			highScore.add(player.getHighScoreEntity());
+			System.out.println("HIGHSCORE!!");
 		}
 		Collections.sort(highScore);
 		return highScore;
