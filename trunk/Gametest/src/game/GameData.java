@@ -94,4 +94,8 @@ public class GameData {
 	public void setMainFrame(GameFrame mainFrame) {
 		this.mainFrame = mainFrame;
 	}
+	
+	public int getNumberOfLevels() {
+		return levels.size();
+	}
 }

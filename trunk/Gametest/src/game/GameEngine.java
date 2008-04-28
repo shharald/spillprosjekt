@@ -29,46 +29,43 @@ public class GameEngine implements Runnable {
 		gameData.getPlayer().setXLocation(450);
 		gameData.getPlayer().setYLocation(450);
 		gameData.getPlayer().setBufferedImage(LoadImages.getImage("eksempel", "player.png"));
-		List<Thread> movingTargetThreads = new ArrayList<Thread>();
-		for (int i = 0; i < gameData.getLevel(0).getTargets().size();i++){
-			movingTargetThreads.add(new Thread(new MovingTarget(gameData.getLevel(0).getTargets().get(i), (int)(((Math.random()*1000)+10000)), gameData)));
-		}
-		gameData.setLevelOnScreen(gameData.getLevel(0));
-
-//		for (int i = 0; i < movingTargetThreads.size(); i++){
-//			movingTargetThreads.get(i).start();
-//		}
-		
-		//makes an order
-		int[] order = new int [movingTargetThreads.size()];
-		for(int i = 0; i < order.length; i++){	
-			order[i] = i;
-		}
-		
-		//shuffles
-		for(int i = 0; i < 500; i++){
-			int one = (int)(Math.random()*movingTargetThreads.size());
-			int other = (int)(Math.random()*movingTargetThreads.size());
-			int temp = order[one];
-			order[one] = order[other];
-			order[other] = temp;
-		}
-		//starting threads in order
-		for (int i = 0; i < order.length; i++){
-			movingTargetThreads.get(order[i]).start();
-			gameData.getLevel(0).getTargets().get(order[i]).setStatus(1);
-			try {
-				movingTargetThreads.get(order[i]).join();
-			} catch (InterruptedException e) {
-				e.printStackTrace();
+		for (int j = 0; j < gameData.getNumberOfLevels(); j++){
+			List<Thread> movingTargetThreads = new ArrayList<Thread>();
+			for (int i = 0; i < gameData.getLevel(j).getTargets().size();i++){
+				movingTargetThreads.add(new Thread(new MovingTarget(gameData.getLevel(j).getTargets().get(i), (int)(((Math.random()*1000)+10000)), gameData)));
 			}
-		}		
-		try {
-			for (int i = 0; i < movingTargetThreads.size(); i++) movingTargetThreads.get(i).join();
-		} catch (InterruptedException e1) {
-			e1.printStackTrace();
+			gameData.setLevelOnScreen(gameData.getLevel(j));
+			
+			//makes an order
+			int[] order = new int [movingTargetThreads.size()];
+			for(int i = 0; i < order.length; i++){	
+				order[i] = i;
+			}
+			
+			//shuffles
+			for(int i = 0; i < 500; i++){
+				int one = (int)(Math.random()*movingTargetThreads.size());
+				int other = (int)(Math.random()*movingTargetThreads.size());
+				int temp = order[one];
+				order[one] = order[other];
+				order[other] = temp;
+			}
+			//starting threads in order
+			for (int i = 0; i < order.length; i++){
+				movingTargetThreads.get(order[i]).start();
+				gameData.getLevel(j).getTargets().get(order[i]).setStatus(1);
+				try {
+					movingTargetThreads.get(order[i]).join();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}		
+			try {
+				for (int i = 0; i < movingTargetThreads.size(); i++) movingTargetThreads.get(i).join();
+			} catch (InterruptedException e1) {
+				e1.printStackTrace();
+			}
 		}
-		
 	}
 	
 }
