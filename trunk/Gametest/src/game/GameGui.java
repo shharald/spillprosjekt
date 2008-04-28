@@ -9,7 +9,6 @@ import java.util.List;
 public class GameGui implements Runnable {
   
 	GameData gameData;
-	GameFrame mainFrame;
 	List<GuiObject> guiObjects = new ArrayList<GuiObject>();
 	GraphicsDevice device = null;
 	DisplayMode currentDisplayMode = null;
@@ -51,21 +50,20 @@ public class GameGui implements Runnable {
     public void doshit (){
 		try {
 	        GraphicsConfiguration gc = device.getDefaultConfiguration();
-	        mainFrame = new GameFrame(gc);
-	        mainFrame.setUndecorated(true);
-	        mainFrame.setIgnoreRepaint(true);
-	        device.setFullScreenWindow(mainFrame);
+	        gameData.setMainFrame(new GameFrame(gc));
+	        gameData.getMainFrame().setUndecorated(true);
+	        gameData.getMainFrame().setIgnoreRepaint(true);
+	        device.setFullScreenWindow(gameData.getMainFrame());
 	        if (debug) {
 		        System.out.println(currentDisplayMode.getHeight()+"x"+currentDisplayMode.getWidth());
 		        System.out.println(modeToPaint.getHeight()+"x"+modeToPaint.getWidth());
 		        System.out.println("Offset: "+offset+" Ratio: "+xRatio+" Ratio: "+yRatio);
 	        }
-	        mainFrame.createBufferStrategy(4);
-	        BufferStrategy bufferStrategy = mainFrame.getBufferStrategy();
+	        gameData.getMainFrame().createBufferStrategy(4);
+	        BufferStrategy bufferStrategy = gameData.getMainFrame().getBufferStrategy();
 	        Graphics g = bufferStrategy.getDrawGraphics();
 	        g.translate(offset, 0);
 	        while(run) {
-	    		gameData.setCurrentLine(mainFrame.getCurrentLine());
 	                if (!bufferStrategy.contentsLost()) {
 	                	if (debug) {
 		                	if (fpsCounter!=0) {
@@ -113,8 +111,8 @@ public class GameGui implements Runnable {
 	            			g.setColor(COLORS[2]);
 	       
 	            			g.drawString(str, (int)(1000*yRatio), 20);
-	          //  			g.drawString(mainFrame.getCurrentLine(), (int)(900*yRatio), (int)(20*xRatio));
-	            			g.drawString(mainFrame.getCurrentString(), (int)(200*yRatio), (int)(900*xRatio));
+	          //  			g.drawString(gameData.getMainFrame().getCurrentLine(), (int)(900*yRatio), (int)(20*xRatio));
+	            			g.drawString(gameData.getMainFrame().getCurrentString(), (int)(200*yRatio), (int)(900*xRatio));
 	            		}
 	                	bufferStrategy.show();
 	                	if (debug) {

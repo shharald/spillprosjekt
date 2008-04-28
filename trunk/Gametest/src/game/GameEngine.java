@@ -31,7 +31,7 @@ public class GameEngine implements Runnable {
 		gameData.getPlayer().setBufferedImage(LoadImages.getImage("eksempel", "player.png"));
 		List<Thread> movingTargetThreads = new ArrayList<Thread>();
 		for (int i = 0; i < gameData.getLevel(0).getTargets().size();i++){
-			movingTargetThreads.add(new Thread(new MovingTarget(gameData.getLevel(0).getTargets().get(i), (int)(((Math.random()*1000)+10000)))));
+			movingTargetThreads.add(new Thread(new MovingTarget(gameData.getLevel(0).getTargets().get(i), (int)(((Math.random()*1000)+10000)), gameData)));
 		}
 		gameData.setLevelOnScreen(gameData.getLevel(0));
 
@@ -53,6 +53,7 @@ public class GameEngine implements Runnable {
 			order[one] = order[other];
 			order[other] = temp;
 		}
+		//starting threads in order
 		for (int i = 0; i < order.length; i++){
 			movingTargetThreads.get(order[i]).start();
 			gameData.getLevel(0).getTargets().get(order[i]).setStatus(1);
