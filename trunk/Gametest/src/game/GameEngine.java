@@ -67,8 +67,12 @@ public class GameEngine implements Runnable {
 				e1.printStackTrace();
 			}
 		}
+		GameGui.stop();
 		UpdateHighScore.update(gameData.getPlayer(), gameData.getHighScore());
 		UpdateHighScore.commit(gameData.getHighScore());
+		Engine gameMenu = new Engine(gameData);
+		Thread menu = new Thread(gameMenu);
+		menu.start();
 	}
 	
 }

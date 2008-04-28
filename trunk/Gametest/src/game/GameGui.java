@@ -6,8 +6,6 @@ import java.awt.image.BufferStrategy;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.JPanel;
-
 public class GameGui implements Runnable {
   
 	GameData gameData;
@@ -17,7 +15,7 @@ public class GameGui implements Runnable {
 	DisplayMode modeToPaint = null;
 	DisplayMode nativeMode = new DisplayMode(1280,1024,32,0);
 	int offset = 0;
-	boolean run = true;
+	static boolean run = true;
 	double xRatio = 1;
 	double yRatio = 1;
 	
@@ -144,7 +142,7 @@ public class GameGui implements Runnable {
 	        System.exit(0);		
 	}
 	
-	public void stop () {
+	public static void stop () {
 		run = false;
 	}
 }
