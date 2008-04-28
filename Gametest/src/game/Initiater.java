@@ -9,8 +9,13 @@ public class Initiater {
 		gameData.setObjectsOnScreen(gameData.getMenu());
 		GameGui gameGui = new GameGui(gameData);
 		GameEngine gameEngine = new GameEngine(gameData);
+		GameMenu gameMenu = new GameMenu(gameData);
+		
 		Thread gui = new Thread(gameGui);
+		Thread menu = new Thread(gameMenu);
 		Thread game = new Thread(gameEngine);
+		menu.start();
+		menu.join();
 		game.start();
 		while (game.isAlive() || gui.isAlive()){
 			if (!gui.isAlive() && gameEngine.getgraphicsLoaded()) {
