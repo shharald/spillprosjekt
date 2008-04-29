@@ -15,7 +15,6 @@ public class GraphicsHighScore {
 		this.yLocation = yLocation;
 		this.string = string;
 	}
-	
 	public void paint(Graphics2D g){
 			g.drawString(string, xLocation, yLocation);
 	}
