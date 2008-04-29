@@ -17,6 +17,7 @@ import javax.swing.*;
 public class ButtonPanel extends JPanel implements MouseListener{
 	private BufferedImage background;
 	private List<GraphicsButton> buttons = new ArrayList<GraphicsButton>();
+	private List<GraphicsHighScore> strings = new ArrayList<GraphicsHighScore>();
 	
 	public ButtonPanel(String backgroundFileName){
 		this.setBackground(backgroundFileName);
@@ -71,6 +72,9 @@ public class ButtonPanel extends JPanel implements MouseListener{
 	
 	public void addButton(GraphicsButton button){
 		this.buttons.add(button);
+	}
+	public void addString(GraphicsHighScore ghs){
+		this.strings.add(ghs);
 	}
 	public void removeAllButtons(){
 		buttons.removeAll(this.getButtons());
