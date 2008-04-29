@@ -9,6 +9,7 @@ import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import javax.imageio.ImageIO;
@@ -79,8 +80,16 @@ public class ButtonPanel extends JPanel implements MouseListener{
 	public void removeAllButtons(){
 		buttons.removeAll(this.getButtons());
 	}
+	public void removeAllStrings(){
+		strings.removeAll(this.getStrings());
+	}
 	
 	
+	private List<GraphicsHighScore> getStrings() {
+		// TODO Auto-generated method stub
+		return this.strings;
+	}
+
 	public List<GraphicsButton> getButtons(){
 		return this.buttons;
 	}
@@ -89,6 +98,9 @@ public class ButtonPanel extends JPanel implements MouseListener{
 		g.drawImage(this.background, null, 0, 0);	
 		for(int i = 0; i < this.buttons.size(); i++){
 			this.buttons.get(i).paint(g);
+		}
+		for(int i = 0; i < this.strings.size(); i++){
+			this.strings.get(i).paint(g);
 		}
 	}
 	

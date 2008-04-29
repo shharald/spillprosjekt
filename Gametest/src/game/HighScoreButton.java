@@ -39,7 +39,8 @@ public class HighScoreButton extends GraphicsButton{
 			System.out.println(gameData.getHighScore().get(i).getHighScoreEntityName());			
 			System.out.println(gameData.getHighScore().get(i).getHighScoreEntityValue());			
 		}
-		panel.addString(new HighScoreLabel(gameData.getHighScore().get(0).getHighScoreEntityName(), 300, 300));
+		panel.addString(new HighScoreLabel(gameData.getHighScore().get(0).getHighScoreEntityName()
+				+"  "+gameData.getHighScore().get(0).getHighScoreEntityValue(), 300, 300));
 		
 	}
 
