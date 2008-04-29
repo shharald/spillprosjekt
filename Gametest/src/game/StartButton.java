@@ -3,9 +3,10 @@ package game;
 public class StartButton extends GraphicsButton {
 	private GameData gameData;
 	
-	public StartButton(String name, int xLocation, int yLoaction, String imageFileName, String imageFileNamePressed, GameData gameData){
+//	public StartButton(String name, int xLocation, int yLoaction, String imageFileName, String imageFileNamePressed, GameData gameData){
+		public StartButton(String name, int xLocation, int yLoaction, String imageFileName, String imageFileNamePressed){
 		super(name,xLocation, yLoaction,imageFileName, imageFileNamePressed);
-		this.gameData = gameData;
+//		this.gameData = gameData;
 	}
 	
 	@Override
