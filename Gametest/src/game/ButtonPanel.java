@@ -72,6 +72,10 @@ public class ButtonPanel extends JPanel implements MouseListener{
 	public void addButton(GraphicsButton button){
 		this.buttons.add(button);
 	}
+	public void removeAllButtons(){
+		buttons.removeAll(this.getButtons());
+	}
+	
 	
 	public List<GraphicsButton> getButtons(){
 		return this.buttons;
