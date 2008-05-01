@@ -25,8 +25,9 @@ public class GameEngine implements Runnable {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		gameData.loadAllLevels();
-		gameData.getPlayer().setPlayerName("VKS in tha Hood");
+//		gameData.loadAllLevels();
+		System.out.println("antall lvler: " + gameData.getNumberOfLevels());
+		gameData.getPlayer().setPlayerName("Spiller");
 		gameData.getPlayer().setXLocation(450);
 		gameData.getPlayer().setYLocation(450);
 		gameData.getPlayer().setBufferedImage(LoadImages.getImage("eksempel", "player.png"));

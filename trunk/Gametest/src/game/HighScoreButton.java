@@ -30,10 +30,10 @@ public class HighScoreButton extends GraphicsButton{
 		panel.removeAllButtons();
 
 		panel.setBackground("menubackground_highscore.jpg");
-		panel.addButton(new StartButton("StartKnapp", 2, 2, "blank.jpg", "startPressed.jpg"));
+		panel.addButton(new StartButton("StartKnapp", 2, 2, "blank.jpg", "startPressed.jpg", panel, gameData));
 		panel.addButton(new ExitButton("ExitKnapp", 6, 2, "blank.jpg", "exitPressed.JPG"));
 		panel.addButton(new ExitButton("ExitKnapp", 8, 2, "blank.jpg", "exitPressed.JPG"));
-		panel.addButton(new BackToMenuButton("TilbakeTilMenyenKnapp", 470, 600, "exit.JPG", "exitPressed.JPG", panel));
+		panel.addButton(new BackToMenuButton("TilbakeTilMenyenKnapp", 470, 600, "exit.JPG", "exitPressed.JPG", panel, gameData));
 		System.out.println("Knappen "+this.name+" ble tykket på. Her skal det stå hvem som er best");
 //		for(int i = 0; i<gameData.getHighScore().size(); i++){
 //			System.out.println(gameData.getHighScore().get(i).getHighScoreEntityName());			

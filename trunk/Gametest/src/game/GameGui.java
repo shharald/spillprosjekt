@@ -131,6 +131,7 @@ public class GameGui implements Runnable {
 	    } finally {
 	        device.setFullScreenWindow(null);
 	    }
+	    
     }
 
 	public void run() {

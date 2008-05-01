@@ -6,9 +6,10 @@ public class BackToMenuButton extends GraphicsButton{
 	private GameData gameData;
 
 	public BackToMenuButton(String name, int xlocation, int ylocation,
-			String imageFileName, String imageFileNamePressed, ButtonPanel panel) {
+			String imageFileName, String imageFileNamePressed, ButtonPanel panel, GameData gameData) {
 		super(name, xlocation, ylocation, imageFileName, imageFileNamePressed);
 		this.panel = panel;
+		this.gameData = gameData;
 		
 		// TODO Auto-generated constructor stub
 	}
@@ -18,9 +19,9 @@ public class BackToMenuButton extends GraphicsButton{
 		panel.removeAllButtons();
 		panel.removeAllStrings();
 		panel.setBackground("menubackground_menu.jpg");
-		panel.addButton(new StartButton("StartKnapp", 475, 370, "start.jpg", "startPressed.jpg"));
+		panel.addButton(new StartButton("StartKnapp", 475, 370, "start.jpg", "startPressed.jpg", panel, gameData));
 		panel.addButton(new ExitButton("ExitKnapp", 900, 600, "exit.JPG", "exitPressed.JPG"));
-		panel.addButton(new CreditsButton("CreditsKnapp", 800, 370, "credits.jpg", "creditsPressed.jpg", panel));
+		panel.addButton(new CreditsButton("CreditsKnapp", 800, 370, "credits.jpg", "creditsPressed.jpg", panel, gameData));
 		panel.addButton(new HighScoreButton("HighScoreKnapp", 150, 370, 
 				"highscore.jpg", "highscorePressed.jpg", panel, gameData));
 		System.out.println("Knappen "+this.name+" ble tykket på. Her skal det stå skaperne av dette spillet");

@@ -32,11 +32,15 @@ public class MovingTarget implements Runnable{
 				target.getVector().setPolar(0, 0);
 			}
 			if ((target.getStatus() == 1 )) {
+				try {
 				if (gameData.getCurrentLine().trim().equals(target.getStringToWrite().toLowerCase())) {
 					System.out.println("Setter "+(target.getStringToWrite()+" til 0"));
 					target.setStatus(0);
 					target.getPlayer().increaseScore(target.getPointsForClear());
 					timeToUse = 0;
+					return;
+				}
+				} catch (Exception ex) {
 					return;
 				}
 			}

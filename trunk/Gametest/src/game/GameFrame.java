@@ -28,8 +28,10 @@ public class GameFrame extends Frame implements KeyListener{
 	 	public void keyPressed(KeyEvent e)
 	 	{
 	        if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+	        	if (!(currentString == null)){
 	        	currentLine = currentString;
 	            currentString = "";
+	        	}
 	           }
 	        if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
 	        	currentLine = "exit";
