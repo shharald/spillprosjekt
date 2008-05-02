@@ -100,7 +100,7 @@ public class GameGui implements Runnable {
 	                 		}
 	        
 	                  		g.drawString(((Target)go).getStringToWrite(), (int)(1025*xRatio), (int)(tekstHoyde*yRatio));
-	                  		if (((Target)go).getStatus() == 1) g.drawString(Integer.toString(((Target)go).getPointsForClear()), 30, 30);
+	                  		if (((Target)go).getStatus() == 1) g.drawString(Integer.toString(((Target)go).getPointsForClear()), 30, 50);
 	                  		g.setColor(COLORS[2]);
                  		}
 	                  	
@@ -115,7 +115,7 @@ public class GameGui implements Runnable {
 	            			// det du skriver
 	            		}
 		            	g.setColor(COLORS[4]);
-	            		g.drawString(gameData.getMainFrame().getCurrentString(), (int)(20*yRatio), (int)(912*xRatio));
+	            		g.drawString(gameData.getMainFrame().getCurrentString(), (int)(35*yRatio), (int)(912*xRatio));
 	            		
 	                	bufferStrategy.show();
 	                	if (debug) {
