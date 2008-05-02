@@ -7,6 +7,10 @@ import java.awt.event.KeyListener;
 
 public class GameFrame extends Frame implements KeyListener{
 
+		/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 		private String currentLine = "";
 		private String currentString = "";
 

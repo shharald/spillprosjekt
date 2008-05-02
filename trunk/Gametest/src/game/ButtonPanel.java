@@ -9,13 +9,16 @@ import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
 public class ButtonPanel extends JPanel implements MouseListener{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private BufferedImage background;
 	private List<GraphicsButton> buttons = new ArrayList<GraphicsButton>();
 	private List<GraphicsHighScore> strings = new ArrayList<GraphicsHighScore>();
@@ -27,7 +30,7 @@ public class ButtonPanel extends JPanel implements MouseListener{
 	
 	public void mouseClicked(MouseEvent e){
 		for(int i = 0; i < this.buttons.size(); i++){
-			System.out.println("Checking");
+			//System.out.println("Checking");
 			if(this.buttons.get(i).contains(e.getX(), e.getY())){
 				this.buttons.get(i).clicked();
 				this.buttons.get(i).setPressed(false);
@@ -38,7 +41,7 @@ public class ButtonPanel extends JPanel implements MouseListener{
 	
 	public void mouseReleased(MouseEvent e){
 		for(int i = 0; i < this.buttons.size(); i++){
-			System.out.println("Checking");
+		//	System.out.println("Checking");
 			this.buttons.get(i).setPressed(false);
 			this.repaint();
 		}
@@ -46,7 +49,7 @@ public class ButtonPanel extends JPanel implements MouseListener{
 	
 	public void mousePressed(MouseEvent e){
 		for(int i = 0; i < this.buttons.size(); i++){
-			System.out.println("Checking");
+			//System.out.println("Checking");
 			if(this.buttons.get(i).contains(e.getX(), e.getY())){
 				this.buttons.get(i).setPressed(true);
 				this.repaint();
