@@ -12,7 +12,7 @@ public class StartButton extends GraphicsButton {
 	@Override
 	public void clicked() {
 	//	System.out.println(this.name + "ble trykket på. Vi har desverre ikke noe spille enda.");
-	//	Engine.kill();
+		Engine.kill();
 		GameGui gameGui = new GameGui(gameData);
 		GameEngine gameEngine = new GameEngine(gameData);	
 		Thread gui = new Thread(gameGui);
