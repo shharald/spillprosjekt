@@ -88,6 +88,8 @@ public class GameGui implements Runnable {
 	            		}
 	                 	// Tegn panel
 	                 	// Tegn score
+	            		// player score
+	            		g.drawString("Score:",(int)(900*xRatio), (int)(80*yRatio) );
 	            		g.drawString(Long.toString(gameData.getPlayer().getScore()), (int)(900*xRatio), (int)(100*yRatio));
 	                  	int tekstHoyde = 550;
 	            		for(GuiObject go:gameData.getObjectsOnScreen()){
@@ -98,9 +100,11 @@ public class GameGui implements Runnable {
 	                 		} else {
 	                 			g.setColor(COLORS[8]);
 	                 		}
-	        
+	                  		// objektenes string
 	                  		g.drawString(((Target)go).getStringToWrite(), (int)(1025*xRatio), (int)(tekstHoyde*yRatio));
-	                  		if (((Target)go).getStatus() == 1) g.drawString(Integer.toString(((Target)go).getPointsForClear()), 30, 50);
+	                  		// poeng for clear
+	                  		if (((Target)go).getStatus() == 1) g.drawString(Integer.toString(((Target)go).getPointsForClear()), (int)(50*xRatio), (int)(60*yRatio));
+
 	                  		g.setColor(COLORS[2]);
                  		}
 	                  	
@@ -110,12 +114,15 @@ public class GameGui implements Runnable {
             			g.setFont(def);
             			
 		            		if (debug){
+		            			// fps
 	            			g.drawString(str, (int)(1000*yRatio), 20);
 	          //  			g.drawString(gameData.getMainFrame().getCurrentLine(), (int)(900*yRatio), (int)(20*xRatio));
 	            			// det du skriver
 	            		}
 		            	g.setColor(COLORS[4]);
-	            		g.drawString(gameData.getMainFrame().getCurrentString(), (int)(35*yRatio), (int)(912*xRatio));
+
+	            		g.drawString(gameData.getMainFrame().getCurrentString(), (int)(100*yRatio), (int)(912*xRatio));
+
 	            		
 	                	bufferStrategy.show();
 	                	if (debug) {
