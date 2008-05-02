@@ -1,5 +1,6 @@
 package game;
 
+import java.awt.geom.Path2D;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -30,6 +31,8 @@ public class LoadHighScore {
 			highScoreReader.close();
 		}catch(Exception e){
 			if (e instanceof FileNotFoundException) {
+				File dir = new File("c:/temp");
+				dir.mkdir();
 				File file = new File("c:/temp/highScore.sco");
 				try {
 					file.createNewFile();

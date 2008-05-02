@@ -36,12 +36,19 @@ public class MovingTarget implements Runnable{
 				if (gameData.getCurrentLine().trim().startsWith("navn")) {
 					gameData.getPlayer().setPlayerName(gameData.getCurrentLine().substring(5));
 				}
-				if (gameData.getCurrentLine().trim().equals(target.getStringToWrite().toLowerCase())) {
+				
+				if (gameData.getCurrentLine().trim().toLowerCase().equals(target.getStringToWrite().trim().toLowerCase())) {
+					System.out.println(gameData.getCurrentLine().trim());
+					System.out.println("Sammenliknes med:");
+					System.out.println(target.getStringToWrite().toLowerCase());
 					System.out.println("Setter "+(target.getStringToWrite()+" til 0"));
 					target.setStatus(0);
 					target.getPlayer().increaseScore(target.getPointsForClear());
 					timeToUse = 0;
 					return;
+				}
+				if (gameData.getCurrentLine().trim().toLowerCase().equals("exit")){
+					gameData.exitGame();
 				}
 				} catch (Exception ex) {
 					return;

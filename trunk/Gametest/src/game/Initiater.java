@@ -1,7 +1,15 @@
 package game;
 
+/**
+ * 
+ * 
+ * @author Per Arne Vidar Sjønøst, Harald Schmidt-Horix, Sondre Morten Steen, Vidar Kristoffer Strat
+ *
+ */
+
 public class Initiater {
-    private static GameData gameData = new GameData();
+    
+	private static GameData gameData = new GameData();
     
 	public static void main(String[] args) {
 		Engine gameMenu = new Engine(gameData);
