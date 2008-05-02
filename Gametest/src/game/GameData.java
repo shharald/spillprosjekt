@@ -1,7 +1,6 @@
 package game;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class GameData {
@@ -10,7 +9,6 @@ public class GameData {
 	private List<GuiObject> menu = new ArrayList<GuiObject>();
 	private Player player = new Player();
     private List<GuiObject> objectsOnScreen = new ArrayList<GuiObject>();
-    private String currentLine = "";
 	private List<HighScoreEntity> highScore;
     
 	public void loadAllLevels() {

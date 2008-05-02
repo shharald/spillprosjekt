@@ -1,7 +1,5 @@
 package game;
 
-import javax.swing.JPanel;
-
 public class CreditsButton extends GraphicsButton {
 
 	private ButtonPanel panel;
@@ -21,7 +19,7 @@ public class CreditsButton extends GraphicsButton {
 		panel.removeAllButtons();
 
 		panel.setBackground("menubackground_creds.jpg");
-		panel.addButton(new StartButton("StartKnapp", 475, 370, "start.jpg", "startPressed.jpg",panel, gameData));
+		panel.addButton(new StartButton("StartKnapp", 8, 2, "blank.jpg", "startPressed.jpg",panel, gameData));
 		panel.addButton(new ExitButton("ExitKnapp", 6, 2, "blank.JPG", "exitPressed.JPG"));
 		panel.addButton(new BackToMenuButton("TilbakeTilMenyenKnapp", 470, 600, "exit.JPG", "exitPressed.JPG", panel, gameData));
 		System.out.println("Knappen "+this.name+" ble tykket på. Her skal det stå skaperne av dette spillet");

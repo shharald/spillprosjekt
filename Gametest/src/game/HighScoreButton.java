@@ -1,9 +1,5 @@
 package game;
 
-import java.util.List;
-
-import javax.swing.JLabel;
-
 public class HighScoreButton extends GraphicsButton{
 	
 	private ButtonPanel panel;

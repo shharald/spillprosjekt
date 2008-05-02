@@ -85,7 +85,7 @@ public abstract class GraphicsButton{
 		} else {
 			g.drawImage(this.imagePressed, null, this.xLocation, this.yLocation);
 		}
-		System.out.println(this.pressed);
+	//	System.out.println(this.pressed);
 	}
 	
 	public String toString(){

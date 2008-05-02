@@ -33,6 +33,9 @@ public class MovingTarget implements Runnable{
 			}
 			if ((target.getStatus() == 1 )) {
 				try {
+				if (gameData.getCurrentLine().trim().startsWith("navn")) {
+					gameData.getPlayer().setPlayerName(gameData.getCurrentLine().substring(5));
+				}
 				if (gameData.getCurrentLine().trim().equals(target.getStringToWrite().toLowerCase())) {
 					System.out.println("Setter "+(target.getStringToWrite()+" til 0"));
 					target.setStatus(0);

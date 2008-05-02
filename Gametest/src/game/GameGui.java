@@ -20,7 +20,7 @@ public class GameGui implements Runnable {
 	double yRatio = 1;
 	
 	//debug stuff
-	boolean debug = true;
+	boolean debug = false;
     long fpsCounter = 1;
     long frameDrawStart = 0;
     long frameDrawStop = 0;
@@ -59,7 +59,7 @@ public class GameGui implements Runnable {
 		        System.out.println(modeToPaint.getHeight()+"x"+modeToPaint.getWidth());
 		        System.out.println("Offset: "+offset+" Ratio: "+xRatio+" Ratio: "+yRatio);
 	        }
-	        gameData.getMainFrame().createBufferStrategy(4);
+	        gameData.getMainFrame().createBufferStrategy(2);
 	        BufferStrategy bufferStrategy = gameData.getMainFrame().getBufferStrategy();
 	        Graphics g = bufferStrategy.getDrawGraphics();
 	        g.translate(offset, 0);
@@ -88,8 +88,8 @@ public class GameGui implements Runnable {
 	            		}
 	                 	// Tegn panel
 	                 	// Tegn score
-	            		g.drawString(Long.toString(gameData.getPlayer().getScore()), 900, 100);
-	                  	int tekstHoyde = 500;
+	            		g.drawString(Long.toString(gameData.getPlayer().getScore()), (int)(900*xRatio), (int)(100*yRatio));
+	                  	int tekstHoyde = 550;
 	            		for(GuiObject go:gameData.getObjectsOnScreen()){
 	                  		if (!(go instanceof Target)) continue;
 	                  		tekstHoyde += 30;	            
@@ -98,22 +98,25 @@ public class GameGui implements Runnable {
 	                 		} else {
 	                 			g.setColor(COLORS[8]);
 	                 		}
-	                 		            		
-	                  		g.drawString(((Target)go).getStringToWrite(), 900, tekstHoyde);
+	        
+	                  		g.drawString(((Target)go).getStringToWrite(), (int)(1025*xRatio), (int)(tekstHoyde*yRatio));
 	                  		if (((Target)go).getStatus() == 1) g.drawString(Integer.toString(((Target)go).getPointsForClear()), 30, 30);
 	                  		g.setColor(COLORS[2]);
                  		}
 	                  	
 	            		// Tegn tekst keylistener
-	            		if (debug){
-	            			Font def = new Font(null, 20, 20);
-	            			g.setFont(def);
-	            			g.setColor(COLORS[2]);
-	       
+
+            			Font def = new Font(null, 20, 20);
+            			g.setFont(def);
+            			
+		            		if (debug){
 	            			g.drawString(str, (int)(1000*yRatio), 20);
 	          //  			g.drawString(gameData.getMainFrame().getCurrentLine(), (int)(900*yRatio), (int)(20*xRatio));
-	            			g.drawString(gameData.getMainFrame().getCurrentString(), (int)(200*yRatio), (int)(900*xRatio));
+	            			// det du skriver
 	            		}
+		            	g.setColor(COLORS[4]);
+	            		g.drawString(gameData.getMainFrame().getCurrentString(), (int)(20*yRatio), (int)(912*xRatio));
+	            		
 	                	bufferStrategy.show();
 	                	if (debug) {
 	                	frameDrawStop = System.currentTimeMillis();
